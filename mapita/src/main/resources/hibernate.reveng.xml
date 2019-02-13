@@ -40,7 +40,7 @@ made subject to such option by the copyright holder.
 Contributor(s):
 -->
 <hibernate-reverse-engineering>
-  <schema-selection match-catalog="mapita" match-schema="MAYONESA"/>
+  <schema-selection match-catalog="mapita"/>
   <table-filter match-name="usuario"/>
   <table-filter match-name="marcador"/>
 </hibernate-reverse-engineering>
