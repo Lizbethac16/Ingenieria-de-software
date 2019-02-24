@@ -16,9 +16,6 @@
         </property>
         <property name="latitud" type="double">
             <column name="latitud" precision="17" scale="17" not-null="true" />
-        </property>
-        <property name="usuarioid" type="java.lang.Integer">
-            <column name="usuarioid" />
-        </property>
+        </property>        
     </class>
 </hibernate-mapping>

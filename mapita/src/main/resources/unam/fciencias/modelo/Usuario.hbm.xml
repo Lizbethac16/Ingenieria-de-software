@@ -20,5 +20,11 @@
         <property name="fechanacimiento" type="date">
             <column name="fechanacimiento" length="13" />
         </property>
+        <set name="marcadors" table="marcador" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="usuarioid" />
+            </key>
+            <one-to-many class="is.lab.mapita.modelo.Marcador" />
+        </set>
     </class>
 </hibernate-mapping>

@@ -70,9 +70,6 @@ public class Usuario  implements java.io.Serializable {
         this.fechanacimiento = fechanacimiento;
     }
 
-
-
-
 }
 
 
