@@ -16,10 +16,16 @@
                 <br><p:inputNumber id="id" value="#{eliminaUsuario.idusuario}" placeholder="Usuario a eliminar"/></br>
                 <br><p:commandButton action="#{eliminaUsuario.eliminaUsuario()}" value="Eliminalo" ajax="false"/></br>
             </h:form>
+            <h:form id="busqueda">
+                        <p:inputText type="search " value="#{buscarPorCorreo.correo}"/>
+                        <p:inputText type="search " value="#{buscarPorCorreo.contrasenia}"/>
+                        <p:commandButton action="#{buscarPorCorreo.buscaPorCorreo()}" value="BuscaPorNombre"/>
+                    </h:form>
+            
 
             <header>
                     <h1>Mapita</h1>
-                    <h:form id="busqueda">
+                    <h:form id="busquedaC">
                         <p:inputText type="search " value="#{buscaPorNombre.nombre}"/>
                         <p:commandButton action="#{buscaPorNombre.buscaPorNombre()}" value="BuscaPorNombre"/>
                     </h:form>
@@ -47,9 +53,15 @@
                             <p:inputText id="correo" value="#{agregaUsuario.correo}" placeholder="Correo"/> <br/>
                             <p:password id="constrasenia" value="#{agregaUsuario.contrasenia}" placeholder="Contrasenia"/> <br/>
                             <p:calendar id="fechanacimiento" value="#{agregaUsuario.fechanacimiento}" placeholder="Fecha de nacimiento"/> <br/>
-                            <p:commandButton action="#{agregaUsuario.agregaUsuario()}" value="Registrame" ajax="false" />
+                            <p:commandButton action="#{agregaUsuario.agregraUsuario()}" value="Registrame" ajax="false" />
+                        </h:form>
+                        <h:form>
+                            <p:inputText id="correo" value="#{controladorSesion.correo}" placeholder="Correo"/> <br/>
+                            <p:password id="constrasenia" value="#{controladorSesion.contrasenia}" placeholder="Contrasenia"/> <br/>
+                            <p:commandButton action="#{controladorSesion.login()}" value="Inicia Sesión" ajax="false" />
                         </h:form>
                     </aside>
+                    
                 </main>
                 <footer>
                     <h3>

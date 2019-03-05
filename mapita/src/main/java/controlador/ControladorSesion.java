@@ -6,6 +6,7 @@
 package controlador;
 
 import com.mycompany.modelo.Usuario;
+import com.mycompany.modelo.UsuarioDAO;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -17,7 +18,7 @@ import javax.faces.context.FacesContext;
 @SessionScoped
 public class ControladorSesion {
     private String correo;
-    private String contrasesnia;
+    private String contrasenia;
 
     public String getCorreo() {
         return correo;
@@ -27,26 +28,27 @@ public class ControladorSesion {
         this.correo = correo;
     }
 
-    public String getContrasesnia() {
-        return contrasesnia;
+    public String getContrasenia() {
+        return contrasenia;
     }
 
-    public void setContrasesnia(String contrasesnia) {
-        this.contrasesnia = contrasesnia;
+    public void setContrasenia(String contrasesnia) {
+        this.contrasenia = contrasesnia;
     }
 
     public String login(){
-        Usuario user = null;
+        UsuarioDAO uda = new UsuarioDAO();
+        Usuario user = uda.buscaPorCorreo(correo, contrasenia);
         FacesContext context = FacesContext.getCurrentInstance();
         if(user !=null){
             context.getExternalContext().getSessionMap().put("user", user);
-            return "perfil?faces-redirect=true";
+            return "/user/perfil?faces-redirect=true";
         }
         return "";
     }
 
     public String logout(){
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-        return "index?faces-redirect=true";
+        return "/index?faces-redirect=true";
     }
 }

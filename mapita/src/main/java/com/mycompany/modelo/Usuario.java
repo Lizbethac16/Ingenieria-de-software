@@ -1,5 +1,5 @@
-package is.lab.mapita.modelo;
-// Generated 08-feb-2019 13:44:51 by Hibernate Tools 4.3.1
+package com.mycompany.modelo;
+// Generated 12/02/2019 02:21:28 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -23,11 +23,9 @@ public class Usuario  implements java.io.Serializable {
     }
 
 	
-    public Usuario(int idusuario, String nombre, String correo, String contrasenia) {
+    public Usuario(int idusuario, String nombre) {
         this.idusuario = idusuario;
         this.nombre = nombre;
-        this.correo = correo;
-        this.contrasenia = contrasenia;
     }
     public Usuario(int idusuario, String nombre, String correo, String contrasenia, Date fechanacimiento, Set marcadors) {
        this.idusuario = idusuario;

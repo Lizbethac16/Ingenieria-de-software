@@ -1,5 +1,5 @@
-package is.lab.mapita.modelo;
-// Generated 08-feb-2019 13:44:51 by Hibernate Tools 4.3.1
+package com.mycompany.modelo;
+// Generated 12/02/2019 02:21:28 PM by Hibernate Tools 4.3.1
 
 
 
@@ -12,20 +12,17 @@ public class Marcador  implements java.io.Serializable {
      private int idmarcador;
      private Usuario usuario;
      private String descripcion;
-     private double longitud;
-     private double latitud;
+     private Double longitud;
+     private Double latitud;
 
     public Marcador() {
     }
 
 	
-    public Marcador(int idmarcador, String descripcion, double longitud, double latitud) {
+    public Marcador(int idmarcador) {
         this.idmarcador = idmarcador;
-        this.descripcion = descripcion;
-        this.longitud = longitud;
-        this.latitud = latitud;
     }
-    public Marcador(int idmarcador, Usuario usuario, String descripcion, double longitud, double latitud) {
+    public Marcador(int idmarcador, Usuario usuario, String descripcion, Double longitud, Double latitud) {
        this.idmarcador = idmarcador;
        this.usuario = usuario;
        this.descripcion = descripcion;
@@ -54,18 +51,18 @@ public class Marcador  implements java.io.Serializable {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    public double getLongitud() {
+    public Double getLongitud() {
         return this.longitud;
     }
     
-    public void setLongitud(double longitud) {
+    public void setLongitud(Double longitud) {
         this.longitud = longitud;
     }
-    public double getLatitud() {
+    public Double getLatitud() {
         return this.latitud;
     }
     
-    public void setLatitud(double latitud) {
+    public void setLatitud(Double latitud) {
         this.latitud = latitud;
     }
 
