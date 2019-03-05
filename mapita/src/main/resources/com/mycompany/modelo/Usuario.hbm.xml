@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 12/02/2019 02:50:27 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 12/02/2019 02:21:28 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="unam.fciencias.modelo.Usuario" table="usuario" optimistic-lock="version">
+    <class name="com.mycompany.modelo.Usuario" table="usuario" schema="public" optimistic-lock="version">
         <id name="idusuario" type="int">
             <column name="idusuario" />
             <generator class="identity" />
@@ -12,10 +12,10 @@
             <column name="nombre" not-null="true" />
         </property>
         <property name="correo" type="string">
-            <column name="correo" not-null="true" />
+            <column name="correo" />
         </property>
-        <property name="contrasena" type="string">
-            <column name="contrasena" not-null="true" />
+        <property name="contrasenia" type="string">
+            <column name="contrasenia" />
         </property>
         <property name="fechanacimiento" type="date">
             <column name="fechanacimiento" length="13" />
@@ -24,7 +24,7 @@
             <key>
                 <column name="usuarioid" />
             </key>
-            <one-to-many class="is.lab.mapita.modelo.Marcador" />
+            <one-to-many class="com.mycompany.modelo.Marcador" />
         </set>
     </class>
 </hibernate-mapping>

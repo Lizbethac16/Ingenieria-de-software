@@ -2,8 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 10.6 (Ubuntu 10.6-1.pgdg16.04+1)
--- Dumped by pg_dump version 10.6 (Ubuntu 10.6-1.pgdg16.04+1)
+-- Dumped from database version 9.5.15
+-- Dumped by pg_dump version 11.1 (Ubuntu 11.1-3.pgdg16.04+1)
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -15,20 +15,6 @@ SET check_function_bodies = false;
 SET client_min_messages = warning;
 SET row_security = off;
 
---
--- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
---
-
-CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
-
-
---
--- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
---
-
-COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
-
-
 SET default_tablespace = '';
 
 SET default_with_oids = false;
@@ -39,9 +25,9 @@ SET default_with_oids = false;
 
 CREATE TABLE public.marcador (
     idmarcador integer NOT NULL,
-    descripcion text NOT NULL,
-    longitud double precision NOT NULL,
-    latitud double precision NOT NULL,
+    descripcion text,
+    longitud double precision,
+    latitud double precision,
     usuarioid integer
 );
 
@@ -53,7 +39,6 @@ ALTER TABLE public.marcador OWNER TO postgres;
 --
 
 CREATE SEQUENCE public.marcador_idmarcador_seq
-    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -77,8 +62,8 @@ ALTER SEQUENCE public.marcador_idmarcador_seq OWNED BY public.marcador.idmarcado
 CREATE TABLE public.usuario (
     idusuario integer NOT NULL,
     nombre text NOT NULL,
-    correo text NOT NULL,
-    contrasena text NOT NULL,
+    correo text,
+    contrasenia text,
     fechanacimiento date
 );
 
@@ -90,7 +75,6 @@ ALTER TABLE public.usuario OWNER TO postgres;
 --
 
 CREATE SEQUENCE public.usuario_idusuario_seq
-    AS integer
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -133,7 +117,8 @@ COPY public.marcador (idmarcador, descripcion, longitud, latitud, usuarioid) FRO
 -- Data for Name: usuario; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.usuario (idusuario, nombre, correo, contrasena, fechanacimiento) FROM stdin;
+COPY public.usuario (idusuario, nombre, correo, contrasenia, fechanacimiento) FROM stdin;
+1	john	john@correocaliente.com	qwerty	1991-09-13
 \.
 
 
@@ -148,7 +133,7 @@ SELECT pg_catalog.setval('public.marcador_idmarcador_seq', 1, false);
 -- Name: usuario_idusuario_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.usuario_idusuario_seq', 1, false);
+SELECT pg_catalog.setval('public.usuario_idusuario_seq', 1, true);
 
 
 --
@@ -173,6 +158,16 @@ ALTER TABLE ONLY public.usuario
 
 ALTER TABLE ONLY public.marcador
     ADD CONSTRAINT marcador_usuarioid_fkey FOREIGN KEY (usuarioid) REFERENCES public.usuario(idusuario);
+
+
+--
+-- Name: SCHEMA public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
 --

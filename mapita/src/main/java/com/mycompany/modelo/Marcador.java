@@ -1,5 +1,5 @@
-package unam.fciencias.modelo;
-// Generated 12/02/2019 02:50:25 PM by Hibernate Tools 4.3.1
+package is.lab.mapita.modelo;
+// Generated 08-feb-2019 13:44:51 by Hibernate Tools 4.3.1
 
 
 
@@ -10,10 +10,10 @@ public class Marcador  implements java.io.Serializable {
 
 
      private int idmarcador;
+     private Usuario usuario;
      private String descripcion;
      private double longitud;
      private double latitud;
-     private Integer usuarioid;
 
     public Marcador() {
     }
@@ -25,12 +25,12 @@ public class Marcador  implements java.io.Serializable {
         this.longitud = longitud;
         this.latitud = latitud;
     }
-    public Marcador(int idmarcador, String descripcion, double longitud, double latitud, Integer usuarioid) {
+    public Marcador(int idmarcador, Usuario usuario, String descripcion, double longitud, double latitud) {
        this.idmarcador = idmarcador;
+       this.usuario = usuario;
        this.descripcion = descripcion;
        this.longitud = longitud;
        this.latitud = latitud;
-       this.usuarioid = usuarioid;
     }
    
     public int getIdmarcador() {
@@ -39,6 +39,13 @@ public class Marcador  implements java.io.Serializable {
     
     public void setIdmarcador(int idmarcador) {
         this.idmarcador = idmarcador;
+    }
+    public Usuario getUsuario() {
+        return this.usuario;
+    }
+    
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
     public String getDescripcion() {
         return this.descripcion;
@@ -60,13 +67,6 @@ public class Marcador  implements java.io.Serializable {
     
     public void setLatitud(double latitud) {
         this.latitud = latitud;
-    }
-    public Integer getUsuarioid() {
-        return this.usuarioid;
-    }
-    
-    public void setUsuarioid(Integer usuarioid) {
-        this.usuarioid = usuarioid;
     }
 
 
