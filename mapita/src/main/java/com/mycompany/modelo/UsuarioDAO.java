@@ -121,6 +121,28 @@ public class UsuarioDAO extends AbstractDAO<Usuario> {
         return usuarios;
     }
     
-
+    public List<Usuario> buscaPorId(int idusuario){
+//        if(nombre.equals(""))
+//            return null;
+        List<Usuario> usuarios =null;
+        Session session = this.sessionFactory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            String hql = "From Usuario u where u.idusuario";
+            Query query = session.createQuery(hql);
+            query.setParameter("id", idusuario);
+            usuarios = (List<Usuario>)query.list();
+            tx.commit();
+        }catch(HibernateException e){
+            if(tx!=null){
+                tx.rollback();
+            }
+            e.printStackTrace();
+        }finally{
+            session.close();
+        }
+        return usuarios;
+    }
     
 }
