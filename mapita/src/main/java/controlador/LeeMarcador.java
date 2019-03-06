@@ -6,8 +6,8 @@
 package controlador;
 
 import java.util.List;
-import com.mycompany.modelo.Usuario;
-import com.mycompany.modelo.UsuarioDAO;
+import com.mycompany.modelo.Marcador;
+import com.mycompany.modelo.MarcadorDAO;
 import javax.faces.bean.ManagedBean;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -19,21 +19,21 @@ import org.hibernate.Transaction;
  * @author lizbethac
  */
 @ManagedBean
-public class LeeUsuario {
-    private int idusuario;  
-    private List<Usuario> resultado;
+public class LeeMarcador {
+    private int idmarcador;  
+    private List<Marcador> resultado;
     
-    public int getIdUsuario(){
-        return idusuario;
+    public int getIdMarcador(){
+        return idmarcador;
     }
     
-    public List<Usuario> getResultado(){
+    public List<Marcador> getResultado(){
         return resultado;
     }
         
-     public String leeUsuario(){                    
-        UsuarioDAO ud = new UsuarioDAO();                
-        resultado = ud.buscaPorId(idusuario);
+     public String leeMarcador(){                    
+        MarcadorDAO ud = new MarcadorDAO();                
+        resultado = ud.buscaPorId(idmarcador);
         return "resultado?faces-redirect=true";
      } 
 }
