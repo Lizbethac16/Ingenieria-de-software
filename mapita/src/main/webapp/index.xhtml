@@ -55,6 +55,17 @@
                             <p:calendar id="fechanacimiento" value="#{agregaUsuario.fechanacimiento}" placeholder="Fecha de nacimiento"/> <br/>
                             <p:commandButton action="#{agregaUsuario.agregraUsuario()}" value="Registrame" ajax="false" />
                         </h:form>
+                        <h2>
+                            Agrega Marcador
+                        </h2>
+                        <h:form>
+                            <p:inputText id="usuario" value="#{agregaMarcador.usuario}" placeholder="Usuario"/> <br/>
+                            <p:inputText id="descripcion" value="#{agregaMarcador.descripcion}" placeholder="Descripcion"/> <br/>
+                            <p:inputText id="longitud" value="#{agregaMarcador.longitud}" placeholder="Longitud"/> <br/>
+                            <p:inputText id="latitud" value="#{agregaMarcador.latitud}" placeholder="Latitud"/> <br/>
+                            <p:commandButton action="#{agregaMarcador.agregaMarcador()}" value="Agregame" ajax="false" />
+                        </h:form>
+                        
                             <h:form>
                             <p:inputText id="id" value="#{getIdUsuario.idusuario}" placeholder="Id usuario"/> <br/>
                             <p:commandButton action="#{leerUsuario.leerUsuario()}" value="Busca Usuario" ajax="false"/> <br/>                            
